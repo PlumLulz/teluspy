@@ -1,8 +1,8 @@
 # teluspy
 Telus keygen
 
-Default ESSID is TELUSXXXX
-Zyxel VSG1432 (not VSG1432-B101)
+Default ESSID is TELUSXXXX \
+Zyxel VSG1432 (not VSG1432-B101) \
 
 Usage: python3 telus.py S140Y12006484
 
