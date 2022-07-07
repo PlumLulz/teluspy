@@ -1,10 +1,9 @@
-# Default ESSID is ZyXELXXXXX
-# https://www.ebay.com/itm/154987272276?hash=item2415f61854:g:0mkAAOSw7jJieWgr
-# Zyxel SBG3500-N000
+# Default ESSID is TELUSXXXX
+# Zyxel VSG1432 (not VSG1432-B101)
 import hashlib
 import argparse
 
-def SBG3500(serial):
+def telus(serial):
 
 	junk = 'agnahaakeaksalmaltalvandanearmaskaspattbagbakbiebilbitblableblib'\
 	'lyboabodbokbolbomborbrabrobrubudbuedaldamdegderdetdindisdraduedu'\
@@ -80,8 +79,8 @@ def SBG3500(serial):
 	print(key)
 
 
-parser = argparse.ArgumentParser(description='Turkey Zyxel Keygen. (Zyxel VMG3312-B10B and VGM3313-B10A)')
+parser = argparse.ArgumentParser(description='Telus keygen')
 parser.add_argument('serial', help='Serial Number')
 args = parser.parse_args()
 
-SBG3500(args.serial)
+telus(args.serial)
