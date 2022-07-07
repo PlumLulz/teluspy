@@ -1,9 +1,10 @@
-# Default ESSID is TELUSXXXX
-# Zyxel VSG1432 (not VSG1432-B101)
+# Default ESSID is ZyXELXXXXX
+# https://www.ebay.com/itm/154987272276?hash=item2415f61854:g:0mkAAOSw7jJieWgr
+# Zyxel SBG3500-N000
 import hashlib
 import argparse
 
-def telus(serial):
+def SBG3500(serial):
 
 	junk = 'agnahaakeaksalmaltalvandanearmaskaspattbagbakbiebilbitblableblib'\
 	'lyboabodbokbolbomborbrabrobrubudbuedaldamdegderdetdindisdraduedu'\
@@ -66,20 +67,21 @@ def telus(serial):
 	filler = "AD3EHKL6V5XY9PQRSTUGN2CJW4FM7Z"
 	filler_mod = 30
 
+	hex_digest_old = hex_digest
 	for i in range(6, 16):
 		if hex_digest[i] == "0" or hex_digest[i] == "1":
 			if i == "6":
-				ascii_sum = ord(hex_digest[31]) + ord(hex_digest[0]) + ord(hex_digest[1])
+				ascii_sum = ord(hex_digest_old[31]) + ord(hex_digest_old[0]) + ord(hex_digest_old[1])
 			else:
-				ascii_sum = ord(hex_digest[i-7]) + ord(hex_digest[i-6]) + ord(hex_digest[i-5])
+				ascii_sum = ord(hex_digest_old[i-7]) + ord(hex_digest_old[i-6]) + ord(hex_digest_old[i-5])
 			replacement = filler[ascii_sum % filler_mod]
 			hex_digest = "%s%s%s" % (hex_digest[:i], replacement, hex_digest[i+1:])
 	key = hex_digest[6:16].lower()
 	print(key)
 
 
-parser = argparse.ArgumentParser(description='Telus keygen')
+parser = argparse.ArgumentParser(description='Turkey Zyxel Keygen. (Zyxel VMG3312-B10B and VGM3313-B10A)')
 parser.add_argument('serial', help='Serial Number')
 args = parser.parse_args()
 
-telus(args.serial)
+SBG3500(args.serial)
